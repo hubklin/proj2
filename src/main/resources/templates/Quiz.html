@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="text-center">
+<h1 class="mt-5">Quiz</h1>
+<form class="mt-5" action="/" method="post">
+    <div class="container">
+        <th:block th:each="question, questionIndex : ${questions}">
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${question.content}"></h5>
+                    <div class="form-group mt-3" th:each="option : ${question.options}">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" th:value="${option}" name="selectedOptions" id="option__${questionIndex.index}">
+                            <label class="form-check-label" for="option__${questionIndex.index}" th:text="${option}"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </th:block>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Zatwierdz</button>
+</form>
+
+</body>
+</html>

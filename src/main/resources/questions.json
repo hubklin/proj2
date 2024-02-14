@@ -1,0 +1,79 @@
+[
+  {
+    "content": "W wyniku kompilacji kodu źródłowego Java otrzymano między innymi pliki Class$1.class, Class$2.class.\nDlaczego w nazwach plików klasowych po znaku $ są liczby 1 i 2",
+    "options": ["Ponieważ klasa zawierała dwie klasy wewnętrzne o nazwach 1 i 2",
+      "Ponieważ klasa zawierała dwie anonimowe klasy wewnętrzne",
+      "Ponieważ klasa zawierała dwie nazwane klasy abstrakcyjne",
+      "Ponieważ klasa zawierała dwie nazwane klasy adaptacyjne"],
+    "correctOption": "Język programowania"
+  },
+  {
+    "content": "W języku Java rozkład komponentów (przycisków) dla biblioteki Swing w oknie aplikacji jak na rysunku niżej realizuje klasa:",
+    "options": ["FlowLayout", "GridLayout", "BorderLayout", "BoxLayout"],
+    "correctOption": "FlowLayout"
+  },
+  {
+    "content": "Wykonanie poniższego programu spowoduje wyświetlenie:",
+    "options": ["List:1List:2List:3\nList:4List:5List:6",
+      "List:123456", "error", "List:{123456}"],
+    "correctOption": "error"
+  },
+  {
+    "content": "W języku Java w klasie serwletów javax.servlet.http.HttpServlet za obsługę żądań typu GET odpowiada metoda:",
+    "options": ["processRequest()", "doGet()", "doPost()",
+      "Język Java nie obsługuje żądań typu GET"],
+    "correctOption": "doGet()"
+  },
+  {
+    "content": "Wykonanie poniższego kodu języka Java powoduje wyświetlenie na konsoli:",
+    "options": ["AC", "BC", "BD", "AD"],
+    "correctOption": "AC"
+  },
+  {
+    "content": "Która składnia dostępu do kolekcji ArrayList<String> myList = new ArrayList<String>(); za pomocą pętli\nfor jest poprawna:\n",
+    "options": ["for (int i = 0; i < myList.size(); i++) { System.out.println(myList(i)); }",
+      "for (String s : myList) { System.out.println(s); }\n",
+      "for (int s : myList) { System.out.println(s); }",
+      "for (int s = 0) { System.out.println(s); }"],
+    "correctOption": "for (int s = 0) { System.out.println(s); }"
+  },
+  {
+    "content": "Które zapisy referencji do metody i wyrażenia Lambda są równoważne ?",
+    "options": ["System.out::println\nx->System.out.println()",
+      "JButton::new\n() -> new JButton()",
+      "int[]::new\nx->new int[x]",
+      "String::valueOf\nx -> String.valueOf(x)"],
+    "correctOption": "JButton::new\n() -> new JButton()"
+  },
+  {
+    "content": "Głównym elementem pliku AndroidManifest.xml jest ?",
+    "options": ["activity", "manifest", "application", "android"],
+    "correctOption": "activity"
+  },
+  {
+    "content": "Wykonanie poniższego programu spowoduje wyświetlenie:",
+    "options": [" 123", "Programu nie można uruchomić,\n ponieważ nie da się skompilować\n",
+      "123.0", " Program da się skompilować, a przy wykonaniu\nzgłosi wyjątek"],
+    "correctOption": " 123"
+  },
+  {
+    "content": "Wykonanie poniższego programu spowoduje wyświetlenie: ",
+    "options": ["List:1List:2List:3\nList:4List:5List:6",
+      "List:123456", "error", "List:{123456}"],
+    "correctOption": "error"
+  },
+  {
+    "content": "Które wyrażenie posortuje tablicę str dla aplikacji przedstawionej poniżej ?",
+    "options": ["(s1,s2)->return (s1.length()-\ns2.length());",
+      "(s1,s2)->{(s1.length()-\ns2.length());}",
+      "(s1,s2)->{return (s1.length()-\ns2.length());}\n",
+      "s1,s2->{return (s1.length()-\ns2.length());}\n"],
+    "correctOption": "(s1,s2)->return (s1.length()-\ns2.length());"
+  },
+  {
+    "content": " Klasa Activity platformy Java Android znajduje się w pakiecie ?",
+    "options": ["android.activity", "android.app",
+      "android.widget", "android.application"],
+    "correctOption": "android.activity"
+  }
+]
