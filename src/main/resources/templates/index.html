@@ -6,16 +6,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body class="text-center">
-<h1 class="mt-5">Wybierz Quiz</h1>
-<form class="mt-5" action="/selectCategory" method="post">
-  <div class="form-group">
-    <select class="form-control" name="category">
-      <option value="FX">JavaFX</option>
-      <option value="Swing">Swing</option>
-      <option value="Spring">Spring</option>
-    </select>
-  </div>
-  <button type="submit" class="btn btn-primary mt-3">Zatwierdz</button>
+<h1 class="mt-5">Test z przedmiotu Java</h1>
+<h3 class="mt-5">Do uzyskania jest 10 punktów</h3>
+<h3 class="mt-5">Czas na realizację to 20 minut</h3>
+<form action="/startQuiz" method="post">
+  <button type="submit" class="btn btn-primary mt-3">Rozpocznij</button>
 </form>
 </body>
 </html>

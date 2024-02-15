@@ -1,34 +1,31 @@
 package com.example.proj2;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class Question {
     private String content;
+    private String correctOption;
     private String[] options;
-    private String[] correctAnswers;
 
-    public Question(String content, String[] options, String[] correctAnswers) {
+    public Question() {
+        // Konstruktor domyślny
+    }
+
+    public Question(String content, String correctOption, String[] options) {
         this.content = content;
+        this.correctOption = correctOption;
         this.options = options;
-        this.correctAnswers = correctAnswers;
     }
 
     public String getContent() {
         return content;
     }
 
+    public String getCorrectOption() {
+        return correctOption;
+    }
+
     public String[] getOptions() {
         return options;
-    }
-
-    public String[] getCorrectAnswers() {
-        return correctAnswers;
-    }
-
-    public boolean isCorrect(String[] userAnswers) {
-        // Sprawdź czy odpowiedzi użytkownika zawierają wszystkie poprawne odpowiedzi
-        return Arrays.asList(userAnswers).containsAll(Arrays.asList(correctAnswers))
-                // i czy liczba odpowiedzi użytkownika jest równa liczbie poprawnych odpowiedzi
-                && userAnswers.length == correctAnswers.length;
     }
 }
