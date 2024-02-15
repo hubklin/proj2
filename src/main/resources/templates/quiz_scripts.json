@@ -1,0 +1,4 @@
+{
+  "timerScript": "var timerElement = document.getElementById('timer');\nvar timeLeft = 3600;\nvar timerInterval = setInterval(function() {\n    var minutes = Math.floor(timeLeft / 60);\n    var seconds = timeLeft % 60;\n    if (seconds < 10) {\n        seconds = '0' + seconds;\n    }\n    timerElement.innerText = minutes + ':' + seconds;\n    timeLeft--;\n    if (timeLeft < 0) {\n        clearInterval(timerInterval);\n        window.location.href = '/results';\n    }\n}, 1000);",
+  "resultsScript": "var correctAnswers = /*[[${correctAnswers}]]*/;\nvar incorrectAnswers = /*[[${incorrectAnswers}]]*/;\ndocument.getElementById('correctAnswers').innerText = correctAnswers;\ndocument.getElementById('incorrectAnswers').innerText = incorrectAnswers;"
+}
