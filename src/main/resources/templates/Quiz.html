@@ -2,21 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Quiz</title>
+    <title>TECHNOLOGIE WEB I JAVA</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .code-block {
+            white-space: pre-wrap;
+        }
+    </style>
 </head>
 <body class="text-center">
-<h1 class="mt-5">Quiz</h1>
+<h1 class="mt-5">Test</h1>
+<div class="timer mt-3">Czas: <span id="timer">60:00</span></div>
 <form class="mt-5" action="/quiz" method="post">
     <div class="container">
         <th:block th:each="question, questionIndex : ${questions}">
             <div class="card mt-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Pytanie <span th:text="${questionIndex.index + 1}"></span></h5>
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title" th:text="${question.content}"></h5>
-                    <div class="form-group mt-3" th:each="option : ${question.options}">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" th:value="${option}" name="selectedOptions" id="option__${questionIndex.index}">
-                            <label class="form-check-label" for="option__${questionIndex.index}" th:text="${option}"></label>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="question-content">
+                                <h5 class="card-title" th:text="${question.content}"></h5>
+                            </div>
+                            <div class="options">
+                                <div class="form-group mt-3" th:each="option, optionIndex : ${question.options}">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" th:value="${option}" name="selectedOptions" th:id="'option__' + ${questionIndex.index} + '_' + ${optionIndex.index}">
+                                        <label class="form-check-label" th:for="'option__' + ${questionIndex.index} + '_' + ${optionIndex.index}" th:text="${option}"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div th:if="${question.codeSnippet != null and question.codeSnippet != ''}">
+                                <h5 class="card-title">Kod:</h5>
+                                <pre><code th:text="${question.codeSnippet}" class="code-block"></code></pre>
+                            </div>
+                            <div th:if="${question.imagePath != null and question.imagePath != ''}">
+                                <h5 class="card-title">Obrazek:</h5>
+                                <img th:src="@{${question.imagePath}}" class="img-fluid" alt="Obrazek dla pytania">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -25,5 +52,29 @@
     </div>
     <button type="submit" class="btn btn-primary mt-3">Zatwierdź</button>
 </form>
+<script>
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                timer = duration;
+                alert('Czas minął!');
+            }
+        }, 1000);
+    }
+    window.onload = function () {
+        var sixtyMinutes = 60 * 60,
+            display = document.querySelector('#timer');
+        startTimer(sixtyMinutes, display);
+    };
+</script>
 </body>
 </html>

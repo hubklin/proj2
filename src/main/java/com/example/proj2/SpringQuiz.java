@@ -10,8 +10,6 @@ import java.util.List;
 @SpringBootApplication
 @Controller
 public class SpringQuiz {
-	private int score;
-	private int totalQuestions;
 	private final QuizService quizService;
 
 	public SpringQuiz(QuizService quizService) {
@@ -31,16 +29,46 @@ public class SpringQuiz {
 	@GetMapping("/quiz")
 	public String showQuiz(Model model) {
 		List<Question> questions = quizService.loadQuestionsFromJson("questions.json");
-		totalQuestions = questions.size();
 		model.addAttribute("questions", questions);
 		return "quiz";
 	}
 
-	@PostMapping("/quiz") // Changed endpoint to handle POST method
+	@PostMapping("/quiz")
 	public String submitQuiz(@RequestParam("selectedOptions") List<String> selectedOptions, Model model) {
-		score = quizService.calculateScore(selectedOptions, quizService.loadQuestionsFromJson("questions.json"));
+		int score = quizService.calculateScore(selectedOptions, quizService.loadQuestionsFromJson("questions.json"));
+		int totalQuestions = quizService.loadQuestionsFromJson("questions.json").size();
 		model.addAttribute("score", score);
 		model.addAttribute("totalQuestions", totalQuestions);
+		return "redirect:/results?score=" + score + "&totalQuestions=" + totalQuestions;
+	}
+
+	@GetMapping("/results")
+	public String showResults(@RequestParam("score") int score, @RequestParam("totalQuestions") int totalQuestions, Model model) {
+		int correctAnswers = score;
+		int incorrectAnswers = totalQuestions - correctAnswers;
+
+
+		String grade;
+		if (score < 5) {
+			grade = "Ocena: 2.0 - Nie zdałeś";
+		} else if (score == 5) {
+			grade = "Ocena: 3.0 - Zdałeś";
+		} else if (score >= 6 && score <= 7) {
+			grade = "Ocena: 3.5 - Zdałeś";
+		} else if (score >= 8 && score <= 9) {
+			grade = "Ocena: 4.0 - Zdałeś";
+		} else if (score >= 10 && score <= 11) {
+			grade = "Ocena: 4.5 - Zdałeś";
+		} else {
+			grade = "Ocena: 5.0 - Zdałeś";
+		}
+
+		model.addAttribute("score", score);
+		model.addAttribute("totalQuestions", totalQuestions);
+		model.addAttribute("correctAnswers", correctAnswers);
+		model.addAttribute("incorrectAnswers", incorrectAnswers);
+		model.addAttribute("grade", grade);
+
 		return "results";
 	}
 

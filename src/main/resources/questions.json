@@ -1,22 +1,25 @@
 [
   {
-    "content": "W wyniku kompilacji kodu źródłowego Java otrzymano między innymi pliki Class$1.class, Class$2.class.\nDlaczego w nazwach plików klasowych po znaku $ są liczby 1 i 2",
+    "content": "W wyniku kompilacji kodu źródłowego Java otrzymano między innymi pliki Class$1.class, Class$2.class. Dlaczego w nazwach plików klasowych po znaku $ są liczby 1 i 2",
     "options": ["Ponieważ klasa zawierała dwie klasy wewnętrzne o nazwach 1 i 2",
       "Ponieważ klasa zawierała dwie anonimowe klasy wewnętrzne",
       "Ponieważ klasa zawierała dwie nazwane klasy abstrakcyjne",
       "Ponieważ klasa zawierała dwie nazwane klasy adaptacyjne"],
-    "correctOption": "Język programowania"
+    "correctOption": "Ponieważ klasa zawierała dwie anonimowe klasy wewnętrzne"
   },
   {
-    "content": "W języku Java rozkład komponentów (przycisków) dla biblioteki Swing w oknie aplikacji jak na rysunku niżej realizuje klasa:",
-    "options": ["FlowLayout", "GridLayout", "BorderLayout", "BoxLayout"],
-    "correctOption": "FlowLayout"
-  },
+  "content": "W języku Java rozkład komponentów (przycisków) dla biblioteki Swing w oknie aplikacji jak na rysunku niżej realizuje klasa:",
+  "options": ["FlowLayout", "GridLayout", "BorderLayout", "BoxLayout"],
+  "correctOption": "FlowLayout",
+  "imagePath": "images/grid.png"
+},
+
   {
     "content": "Wykonanie poniższego programu spowoduje wyświetlenie:",
     "options": ["List:1List:2List:3\nList:4List:5List:6",
       "List:123456", "error", "List:{123456}"],
-    "correctOption": "error"
+    "correctOption": "ist:1List:2List:3\nList:4List:5List:6",
+    "codeSnippet": "import java.util.List;\nimport java.util.Arrays;\n\npublic class A {\n    public static void main(String[] args) {\n        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6);\n        list.forEach((int n) -> System.out.print(\"List:\" + n));\n    }\n}"
   },
   {
     "content": "W języku Java w klasie serwletów javax.servlet.http.HttpServlet za obsługę żądań typu GET odpowiada metoda:",
@@ -27,15 +30,16 @@
   {
     "content": "Wykonanie poniższego kodu języka Java powoduje wyświetlenie na konsoli:",
     "options": ["AC", "BC", "BD", "AD"],
-    "correctOption": "AC"
+    "correctOption": "BC",
+    "codeSnippet": "class MyClass {\n public static void main(String args[]){\n String s1 = new String(\"Java\");\n String s2 = new String(\"Java\");\n if (s1==s2) System.out.print(\"A\");\n else System.out.print(\"B\");\n if (s1.equals(s2)) System.out.print(\"C\");\n else System.out.print(\"D\");\n }\n}"
   },
   {
-    "content": "Która składnia dostępu do kolekcji ArrayList<String> myList = new ArrayList<String>(); za pomocą pętli\nfor jest poprawna:\n",
+    "content": "Która składnia dostępu do kolekcji ArrayList<String> myList = new ArrayList<String>(); za pomocą pętli for jest poprawna:",
     "options": ["for (int i = 0; i < myList.size(); i++) { System.out.println(myList(i)); }",
-      "for (String s : myList) { System.out.println(s); }\n",
+      "for (String s : myList) { System.out.println(s); }",
       "for (int s : myList) { System.out.println(s); }",
       "for (int s = 0) { System.out.println(s); }"],
-    "correctOption": "for (int s = 0) { System.out.println(s); }"
+    "correctOption": "for (String s : myList) { System.out.println(s); }"
   },
   {
     "content": "Które zapisy referencji do metody i wyrażenia Lambda są równoważne ?",
@@ -48,19 +52,21 @@
   {
     "content": "Głównym elementem pliku AndroidManifest.xml jest ?",
     "options": ["activity", "manifest", "application", "android"],
-    "correctOption": "activity"
+    "correctOption": "manifest"
   },
   {
     "content": "Wykonanie poniższego programu spowoduje wyświetlenie:",
     "options": [" 123", "Programu nie można uruchomić,\n ponieważ nie da się skompilować\n",
       "123.0", " Program da się skompilować, a przy wykonaniu\nzgłosi wyjątek"],
-    "correctOption": " 123"
+    "correctOption": "Program da się skompilować, a przy wykonaniu\nzgłosi wyjątek",
+    "codeSnippet":"interface B<T> { void myMethod(T arg); }\npublic class A<T> implements B<T> {\n public static void main(String[] args) {\n A<Double> obj = new A<Double>();\n obj.myMethod(123);\n }\n public void myMethod(T t) {\n System.out.println(t);\n }\n}\n"
   },
   {
     "content": "Wykonanie poniższego programu spowoduje wyświetlenie: ",
     "options": ["List:1List:2List:3\nList:4List:5List:6",
       "List:123456", "error", "List:{123456}"],
-    "correctOption": "error"
+    "correctOption": "List:1List:2List:3\nList:4List:5List:6",
+    "codeSnippet": "import java.util.List; import java.util.Arrays;\npublic class A {\n public static void main(String[] args) {\n List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6);\n list.forEach((int n) -> System.out.print(\"List:\"+n));\n}}"
   },
   {
     "content": "Które wyrażenie posortuje tablicę str dla aplikacji przedstawionej poniżej ?",
@@ -68,12 +74,13 @@
       "(s1,s2)->{(s1.length()-\ns2.length());}",
       "(s1,s2)->{return (s1.length()-\ns2.length());}\n",
       "s1,s2->{return (s1.length()-\ns2.length());}\n"],
-    "correctOption": "(s1,s2)->return (s1.length()-\ns2.length());"
+    "correctOption": "(s1,s2)->return (s1.length()-\ns2.length());",
+    "codeSnippet":"import java.util.Arrays;\npublic class A {\n public static void main(String[] args) {\n String[] str={\"ab\",\"a\",\"abcd\",\"abc\"};\n Arrays.sort(str,\n // Tutaj wyrażenie z lewej\n );\n for (String i:str){\n System.out.println(i);\n }\n }\n}"
   },
   {
     "content": " Klasa Activity platformy Java Android znajduje się w pakiecie ?",
     "options": ["android.activity", "android.app",
       "android.widget", "android.application"],
-    "correctOption": "android.activity"
+    "correctOption": "android.app"
   }
 ]

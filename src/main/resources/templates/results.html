@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Quiz Results</title>
+    <title>Wynik końcowy</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body class="text-center">
-<h1 class="mt-5">Wynik koncowy</h1>
-<p class="mt-5">Quiz ukonczony!</p>
+<h1 class="mt-5">Wynik końcowy</h1>
+<p class="mt-5">Quiz ukończony!</p>
 <p>Wynik: <span th:text="${score}"></span> na <span th:text="${totalQuestions}"></span></p>
+<p th:text="${grade}"></p>
 </body>
 </html>
